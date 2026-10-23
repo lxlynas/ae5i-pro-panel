@@ -1,0 +1,49 @@
+/* Independent enhancement layer; original dashboard styles stay in index.html. */
+.ae5i-hero .hero-stage { height: 360px; margin-top: 8px; }
+.ae5i-hero .hero-stage::before { display: none; }
+.ae5i-hero .hero-stage > img,
+.ae5i-hero .hero-stage > svg.fallback { visibility: hidden; pointer-events: none; }
+.ae5i-hero .hero-stage > .bignum { top: 24px; transform: translateY(-50%); }
+.ae5i-enhancement { position: absolute; inset: 0; z-index: 1; }
+.ae5i-label { position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  font-size: 10px; line-height: 20px; white-space: nowrap; color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-primary-container); border-radius: 100px; padding: 0 9px; }
+.ae5i-viewport { position: absolute; inset: 54px -8px 96px; border-radius: 18px;
+  background: radial-gradient(ellipse at 50% 65%, var(--glow-soft), transparent 68%);
+  overflow: hidden; }
+.ae5i-model { display: block; width: 100%; height: 100%; touch-action: none;
+  --poster-color: transparent; --progress-bar-color: var(--md-sys-color-primary);
+  --progress-bar-height: 0; outline-offset: -4px; }
+.ae5i-status { position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; gap: 10px; text-align: center;
+  color: var(--md-sys-color-on-surface-variant); font-size: 12px; padding: 20px;
+  background: var(--bg-surface); }
+.ae5i-status[hidden], .ae5i-retry[hidden] { display: none; }
+.ae5i-spinner { width: 22px; height: 22px; border: 2px solid var(--md-sys-color-outline-variant);
+  border-top-color: var(--md-sys-color-primary); border-radius: 50%; animation: ae5i-spin 1s linear infinite; }
+.ae5i-status[data-state="error"] .ae5i-spinner { display: none; }
+.ae5i-actions { position: absolute; bottom: 5px; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: center; gap: 6px; }
+.ae5i-button { min-height: 44px; padding: 0 11px; border: 0; border-radius: 14px;
+  background: var(--bg-inset); color: var(--md-sys-color-on-surface); font: inherit;
+  font-size: 12px; cursor: pointer; touch-action: manipulation; }
+.ae5i-button:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+.ae5i-button:disabled { opacity: .45; cursor: default; }
+.ae5i-button[aria-pressed="true"] { color: var(--md-sys-color-on-primary-container);
+  background: var(--md-sys-color-primary-container); }
+.ae5i-caption { margin: 4px 0 10px; text-align: center; color: var(--md-sys-color-on-surface-variant);
+  font-size: 11px; line-height: 17px; }
+.ae5i-caption a { color: inherit; text-underline-offset: 2px; }
+.ae5i-hero .tirebub { bottom: 58px; }
+.ae5i-hero[data-ae5i-mode="2d"] .hero-stage { height: 208px; }
+.ae5i-hero[data-ae5i-mode="2d"] .hero-stage > img,
+.ae5i-hero[data-ae5i-mode="2d"] .hero-stage > svg.fallback { visibility: visible; max-height: 140px; }
+.ae5i-hero[data-ae5i-mode="2d"] .ae5i-viewport { display: none; }
+.ae5i-hero[data-ae5i-mode="2d"] .ae5i-label { display: none; }
+@keyframes ae5i-spin { to { transform: rotate(360deg); } }
+@media (max-width: 360px) {
+  .ae5i-hero .hero-stage > .bignum b { font-size: 28px; }
+  .ae5i-label { font-size: 9px; padding: 0 7px; }
+  .ae5i-button { padding: 0 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .ae5i-spinner { animation-duration: 2s; } }
