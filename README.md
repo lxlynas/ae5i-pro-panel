@@ -9,7 +9,9 @@
 
 单指拖动旋转、双指缩放，支持复位视角、自动旋转、原车图切换及失败重试。添加桌面：Safari 分享 → 添加到主屏幕。
 
-在首页模型下方的「展示模型」中切换 AE4 MAX2+、咕咕嘎嘎企鹅装、DeepSeek 玩偶、巫女半身像。页面记住上次选择；角色只在选中时下载，巫女半身像首次约 37 MB。
+独立版 1.2.0 已同步作者面板 6.93（2f22997）。在首页「展示模型」中切换 AE4 MAX2+、咕咕嘎嘎企鹅装、DeepSeek 玩偶、巫女半身像、悟空手办、复古废土摩托。页面记住选择；扩展模型只在选中时下载，巫女约 37 MB、复古摩托约 59 MB。
+
+「从相册选车图」仅在浏览器内处理并保存图片，不上传、不读取 VIN。刷新后可恢复；「恢复默认车图」只清除该入口的图片，不清理登录信息。Safari 禁止存储时明确提示仅本次显示。
 
 ## 模型与来源
 
@@ -20,6 +22,8 @@
 - 企鹅装原作 Gugugaga：planktonfun / planktonminions，https://sketchfab.com/3d-models/gugugaga-fa1d5c98a98f40f080796e54929b9889 ，CC BY 4.0。
 - DeepSeek 玩偶原作 Deepseek Fumo：xunbile，https://sketchfab.com/3d-models/deepseek-fumo-4da1c304ea11410b97f0f727dd51aca9 ，CC BY 4.0。
 - 巫女半身像来自上游公开模型库，上游未单独注明作者或许可。三个角色使用上游适配版原文件，保留内嵌署名，未再修改模型几何或贴图；固定来源与文件校验值见 models/model-sources.json，页面使用说明包含可点击署名和许可链接。
+- 复古废土摩托：haloworld3dassets，Motorcycle Post-Apocalyptic Style 2，CC BY 4.0；悟空手办：用户提供，源文件标注 CG 美术之家链接，未单独注明许可。具体原作链接、署名和转换说明见 guide.html 与 models/user-model-sources.json。
+- 上游新 API 调试台与 Apache 2.0 主题许可随网站保留；安卓 APK 不属于此 iPhone 网页部署。
 - 本项目为独立适配版本，不是极核官方 App，也不会替换 iPhone 官方 App 的模型。
 
 ## 部署

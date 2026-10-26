@@ -1,4 +1,5 @@
 /* Add the viewer to the public dashboard without changing its account/API logic. */
+import { createLocalPhotoControls } from './local-photo.js?v=1.2.0';
 const MODELS = [
   { id: 'ae4max2', name: 'AE4 MAX2+', size: '6.2 MB', file: 'ae4-max2plus-display.glb', orbit: '35deg 75deg 100%',
     note: '借用 AE4 MAX2+ 展示，与 AE5i Pro 外形不同', alt: 'AE4 MAX2+ 电动车展示模型，并非 AE5i Pro 原车模型' },
@@ -7,7 +8,11 @@ const MODELS = [
   { id: 'deepseek-fumo', name: 'DeepSeek 玩偶', size: '1.2 MB', file: 'deepseek-fumo.glb', orbit: '0deg 80deg 105%',
     note: '第三方趣味角色 · xunbile · CC BY 4.0', alt: 'DeepSeek 女仆装玩偶，非车辆模型' },
   { id: 'miko-bust', name: '巫女半身像', size: '36.7 MB', file: 'miko-bust.glb', orbit: '0deg 85deg 105%',
-    note: '第三方角色半身像 · 首次约 37 MB，加载时间较长', alt: '巫女角色半身像，非车辆模型' }
+    note: '第三方角色半身像 · 首次约 37 MB，加载时间较长', alt: '巫女角色半身像，非车辆模型' },
+  { id: 'wukong-statue', name: '悟空手办', size: '12.1 MB', file: 'wukong-statue.glb', orbit: '30deg 75deg 105%',
+    note: '用户自备角色模型 · 来源 CG 美术之家', alt: '用户提供的悟空手办雕塑模型，非车辆模型' },
+  { id: 'wasteland-motorcycle', name: '复古废土摩托', size: '59.1 MB', file: 'wasteland-motorcycle.glb', orbit: '35deg 75deg 105%',
+    note: 'haloworld3dassets · CC BY 4.0 · 首次约 59 MB，加载时间较长', alt: '复古废土风格摩托展示模型，并非 AE5i Pro 原车模型' }
 ];
 const PREF_KEY = 'ae5i.panel.preferences.v1';
 let preferences = { mode: '3d', rotate: false, model: MODELS[0].id };
@@ -25,6 +30,7 @@ let ready = false;
 let failed = false;
 let mountedHero;
 let queued = false;
+let photoUrl = '';
 let loadSequence = 0;
 const selectedModel = () => MODELS.find(model => model.id === preferences.model) || MODELS[0];
 const root = document.createElement('div');
@@ -50,6 +56,11 @@ const reset = root.querySelector('.ae5i-reset');
 const rotate = root.querySelector('.ae5i-rotate');
 const mode = root.querySelector('.ae5i-mode');
 const label = root.querySelector('.ae5i-label');
+const photo = document.createElement('img');
+photo.className = 'ae5i-custom-photo';
+photo.alt = '本机自选车辆展示图';
+photo.hidden = true;
+root.prepend(photo);
 const picker = document.createElement('label');
 picker.className = 'ae5i-model-picker';
 picker.innerHTML = '<span>展示模型</span><select class="ae5i-model-select" aria-label="选择展示模型"></select>';
@@ -57,11 +68,20 @@ const select = picker.querySelector('select');
 for (const model of MODELS) select.add(new Option(`${model.name} · ${model.size}`, model.id));
 const caption = document.createElement('p');
 caption.className = 'ae5i-caption';
+const photoControls = createLocalPhotoControls((url, reason) => {
+  photoUrl = url;
+  if (url) photo.src = url;
+  else photo.removeAttribute('src');
+  if (reason === 'selected') { preferences.mode = '2d'; savePreferences(); }
+  updateControls();
+});
 function updateModelInfo() {
   const model = selectedModel();
   select.value = model.id;
   label.textContent = `3D · ${model.name}`;
-  caption.innerHTML = `${model.note}<br>单指旋转 · 双指缩放 · <a href="guide.html#models" target="_blank" rel="noopener">模型来源与说明</a>`;
+  caption.innerHTML = preferences.mode === '2d' && photoUrl
+    ? '本机自选静态车图 · 仅保存在本浏览器<br><a href="guide.html#photos" target="_blank" rel="noopener">本机车图说明</a>'
+    : `${model.note}<br>单指旋转 · 双指缩放 · <a href="guide.html#models" target="_blank" rel="noopener">模型来源与说明</a>`;
 }
 updateModelInfo();
 
@@ -73,10 +93,13 @@ function updateRotation() {
 }
 function updateControls() {
   mountedHero?.setAttribute('data-ae5i-mode', preferences.mode);
-  mode.textContent = preferences.mode === '3d' ? '原车图' : '显示 3D';
+  mountedHero?.setAttribute('data-ae5i-photo', String(Boolean(photoUrl)));
+  photo.hidden = !photoUrl || preferences.mode !== '2d';
+  mode.textContent = preferences.mode === '3d' ? (photoUrl ? '静态车图' : '原车图') : '显示 3D';
   rotate.setAttribute('aria-pressed', String(preferences.rotate));
   reset.disabled = !ready || preferences.mode !== '3d';
   rotate.disabled = !ready || preferences.mode !== '3d';
+  updateModelInfo();
   updateRotation();
 }
 function showFailure() {
@@ -113,6 +136,8 @@ async function loadModel(force = false) {
     }
     await libraryPromise;
     if (sequence !== loadSequence) return;
+    // Retain fewer models in memory when switching large assets on a phone.
+    customElements.get('model-viewer').modelCacheSize = 2;
     if (!viewer) {
       viewer = document.createElement('model-viewer');
       viewer.className = 'ae5i-model';
@@ -192,12 +217,13 @@ function mount() {
   const hero = document.querySelector('#scroll .hero-card');
   const stage = hero?.querySelector('.hero-stage');
   if (!stage) { updateRotation(); return; }
-  if (root.parentElement === stage && picker.parentElement === hero && caption.parentElement === hero) return;
+  if (root.parentElement === stage && picker.parentElement === hero && photoControls.parentElement === hero && caption.parentElement === hero) return;
   mountedHero = hero;
   hero.classList.add('ae5i-hero');
   stage.append(root);
   stage.insertAdjacentElement('afterend', picker);
-  picker.insertAdjacentElement('afterend', caption);
+  picker.insertAdjacentElement('afterend', photoControls);
+  photoControls.insertAdjacentElement('afterend', caption);
   updateControls();
   if (preferences.mode === '3d' && !viewer && !libraryPromise) loadModel();
 }

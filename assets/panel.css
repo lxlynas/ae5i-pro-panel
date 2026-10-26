@@ -41,6 +41,13 @@
   border: 1px solid var(--md-sys-color-outline-variant); border-radius: 12px;
   background: var(--bg-inset); color: var(--md-sys-color-on-surface); font: inherit; font-size: 16px; }
 .ae5i-model-select:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
+.ae5i-photo-buttons { display: flex; gap: 8px; }
+.ae5i-photo-buttons > button { flex: 1; }
+.ae5i-photo-status { margin: 5px 0; color: var(--md-sys-color-on-surface-variant); font-size: 11px; line-height: 17px; text-align: center; }
+.ae5i-custom-photo { position: absolute; inset: 24px 0 54px; width: 100%; height: calc(100% - 78px); object-fit: contain; }
+.ae5i-custom-photo[hidden] { display: none; }
+.ae5i-hero[data-ae5i-mode="2d"][data-ae5i-photo="true"] .hero-stage > img,
+.ae5i-hero[data-ae5i-mode="2d"][data-ae5i-photo="true"] .hero-stage > svg.fallback { visibility: hidden; }
 .ae5i-hero .tirebub { bottom: 58px; }
 .ae5i-hero[data-ae5i-mode="2d"] .hero-stage { height: 208px; }
 .ae5i-hero[data-ae5i-mode="2d"] .hero-stage > img,

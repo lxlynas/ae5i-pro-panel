@@ -1,0 +1,45 @@
+{
+  "models": [
+    {
+      "id": "wasteland-motorcycle",
+      "name": "复古废土摩托",
+      "file": "wasteland-motorcycle.glb",
+      "bytes": 59074228,
+      "sha256": "adde02f9ff011a28c7567153e0b57cc6e4eaf57179c8504fcfe4e8931ed0a732",
+      "archiveSha256": "50E6940976F59422AD5E1406C909AAAC9A83710AA340ACC04C372D192AA24BE2",
+      "source": "用户提供的模型压缩包",
+      "asset": {
+        "extras": {
+          "author": "haloworld3dassets (https://sketchfab.com/haloworld3dassets)",
+          "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+          "source": "https://sketchfab.com/3d-models/motorcycle-post-apocalyptic-style-2-40ef38871db943a288a8d4bf30dd8c79",
+          "title": "Motorcycle Post-Apocalyptic Style 2"
+        },
+        "generator": "Sketchfab-16.87.0",
+        "version": "2.0"
+      },
+      "originalSource": "https://sketchfab.com/3d-models/motorcycle-post-apocalyptic-style-2-40ef38871db943a288a8d4bf30dd8c79",
+      "author": "haloworld3dassets (https://sketchfab.com/haloworld3dassets)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "changes": "原 GLB 文件保持不变，保留几何、贴图和内嵌署名。"
+    },
+    {
+      "id": "wukong-statue",
+      "name": "悟空手办",
+      "file": "wukong-statue.glb",
+      "bytes": 12136664,
+      "sha256": "9a710bb3c7bff0a5ceb1e7c327831a46ecb7481b6feabdeac8c1734b843dd9a7",
+      "archiveSha256": "214972F0836EA989E9A9945A205FFFED4EBDA3DD85CFF4D407A3F2E48E5A45C5",
+      "source": "用户提供的模型压缩包",
+      "asset": {
+        "generator": "CG美术之家",
+        "source": "https://www.cgmszj.com/model/101571.html",
+        "version": "2.0"
+      },
+      "originalSource": "https://www.cgmszj.com/model/101571.html",
+      "author": "源文件未单独注明",
+      "license": "源文件未单独注明",
+      "changes": "glTF 与外部 bin 合并为自包含 GLB；原几何缓冲、材质、节点变换和署名保留。"
+    }
+  ]
+}

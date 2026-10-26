@@ -2,16 +2,19 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light dark"><title>使用说明 · AE5i Pro 独立面板</title>
 <style>body{margin:0;background:#141218;color:#f5efff;font:16px/1.8 system-ui,-apple-system,sans-serif}main{max-width:620px;margin:auto;padding:calc(28px + env(safe-area-inset-top)) 24px calc(40px + env(safe-area-inset-bottom))}h1{font-size:27px;line-height:1.4}h2{font-size:18px;margin-top:30px}a{color:#d2bfff}p,li{color:#d5cedd}.back{display:inline-block;padding:10px 0}.note{padding:16px 20px;border-radius:18px;background:#292039}code{overflow-wrap:anywhere}</style></head>
 <body><main><a class="back" href="./">← 返回面板</a><h1>AE5i Pro 独立面板</h1>
-<p class="note">首页支持车辆与趣味角色展示。AE4 MAX2+ 外形与 AE5i Pro 不同，另外三个是第三方角色。模型选择只改变首页展示，真实车辆仍以登录绑定的车辆为准。</p>
+<p class="note">独立版本 1.2.0，已同步作者面板 6.93。首页提供六种模型及本机相册车图。AE4 MAX2+ 和复古废土摩托均不是 AE5i Pro 的真实外形；模型选择只改变展示，真实车辆仍以登录绑定的车辆为准。</p>
 <h2>查看与切换 3D 模型</h2><p>在模型下方的「展示模型」菜单中选择，页面会记住上次选择。单指拖动旋转，双指张合缩放。点击「复位视角」恢复该模型的初始视角；「自动旋转」可以开关。滑动模型外的区域可上下浏览页面。</p><p>只在选择时下载对应模型。加载失败时可「重新加载」、换一个模型，或点「原车图」继续使用面板。巫女半身像约 37 MB，首次加载时间较长；已下载的角色会尝试缓存，空间不足时仍可联网查看。</p>
 <h2 id="models">模型来源与署名</h2><ul>
 <li><strong>AE4 MAX2+ · 约 6.2 MB</strong>：借用的电动车模型，来自作者公开库；展示副本仅隐藏原 App 的充电线和阴影平面，车辆几何与贴图保留。</li>
 <li><strong>咕咕嘎嘎（企鹅装）· 约 9.7 MB</strong>：趣味企鹅装角色。原作 <a href="https://sketchfab.com/3d-models/gugugaga-fa1d5c98a98f40f080796e54929b9889">Gugugaga</a>，作者 <a href="https://sketchfab.com/planktonminions">planktonfun / planktonminions</a>，许可 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</li>
 <li><strong>DeepSeek 玩偶（女仆装）· 约 1.2 MB</strong>：玩偶风格角色。原作 <a href="https://sketchfab.com/3d-models/deepseek-fumo-4da1c304ea11410b97f0f727dd51aca9">Deepseek Fumo</a>，作者 <a href="https://sketchfab.com/xunbile">xunbile</a>，许可 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</li>
 <li><strong>巫女半身像 · 约 36.7 MB</strong>：上游提供的图像转 3D 角色半身像。上游未单独注明作者或许可，来源以公开模型库记录为准。</li>
-</ul><p>三个角色使用作者公开库中已适配朝向与居中的版本，本项目保留原始 GLB 与内嵌署名，未修改其几何或贴图。文件来源、校验值与原始署名见 <a href="models/model-sources.json">模型来源记录</a>。</p>
+<li><strong>悟空手办 · 约 12.1 MB</strong>：用户自备的雕塑模型，文件标注来源 <a href="https://www.cgmszj.com/model/101571.html">CG 美术之家</a>。原文件未单独注明作者或许可；glTF 与 bin 已合并为 GLB，几何缓冲与材质保留。</li>
+<li><strong>复古废土摩托 · 约 59.1 MB</strong>：用户自备，原作 <a href="https://sketchfab.com/3d-models/motorcycle-post-apocalyptic-style-2-40ef38871db943a288a8d4bf30dd8c79">Motorcycle Post-Apocalyptic Style 2</a>，作者 <a href="https://sketchfab.com/haloworld3dassets">haloworld3dassets</a>，许可 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。保留原 GLB，首次下载较大。</li>
+</ul><p>三个原有角色使用作者公开库的适配版，保留原始 GLB 与内嵌署名，未修改几何或贴图。文件来源及校验值见 <a href="models/model-sources.json">原有角色来源记录</a>和<a href="models/user-model-sources.json">自备模型来源记录</a>。所有扩展模型均在选中时下载，不随首页预下载。</p>
+<h2 id="photos">从相册选择本机车图</h2><p>点「从相册选车图」，在手机中选择照片，页面会切换到静态车图。照片只在本机处理并保存到本浏览器的独立图片存储，不上传、不公开，也不需要填写 VIN；正常保存后，刷新或切换面板页面仍可显示。</p><p>支持浏览器可读取的照片，单张不超过 20 MB，保存前会缩放至最长边 1280 像素；透明 PNG/WebP 更适合展示车身。点「恢复默认车图」可清除该入口保存的图片，保留登录信息；「显示 3D」可回到模型展示。</p><p>如果浏览器禁止保存，页面会明确提示「仅本次显示」。其他设备、其他浏览器及清理网站数据后的使用，需要重新选图。照片替换只作用于独立网页，不修改 iPhone 官方极核 App。</p>
 <h2>登录与车况</h2><p>原面板的登录、车况与设置界面保留。请在你自己的手机上登录，无需把密码或 token 发给任何人。新网址与作者网址的数据存储相互独立，需要重新登录。</p><p>未登录时原面板可能展示模拟车辆；请以页面的数据来源提示为准。只有你实际登录并核对后，才能确认真实车况是否正常。车况、登录、验证码和车控请求不会被新增的离线缓存保存。</p>
 <h2>添加到 iPhone 主屏幕</h2><ol><li>用 Safari 打开部署后的 HTTPS 网址。</li><li>点分享按钮，选择「添加到主屏幕」。</li><li>确认名称后点「添加」，以后从桌面图标打开。</li></ol><p>电脑上的本地预览地址不能直接供手机使用。首次添加和登录需要联网；离线只能展示已缓存的页面和模型，不能获取实时车况。</p>
-<h2>当前验证范围</h2><p>本版本先完成电脑端自动化验证。iPhone 真机上的首次登录、真实车况、验证码，以及真实车控仍需你亲自确认。测试过程不会发送短信或触发车控。</p>
-<h2>来源</h2><p>原面板与模型来自 <a href="https://github.com/lswlc33/zeeho-3d-models" target="_blank" rel="noopener">lswlc33/zeeho-3d-models</a>。3D 显示使用 Google <a href="https://modelviewer.dev/" target="_blank" rel="noopener">model-viewer</a>，其许可证随网站保存在 vendor 目录。独立版本冻结上游产物，更新需重新验证。</p>
+<h2>当前验证范围</h2><p>本版本完成电脑端 Chromium/WebKit 自动化验证；相册测试只使用合成图片。iPhone 真机上的首次登录、真实车况、验证码、车控及主屏幕存储效果仍需你亲自确认。测试过程不会发送短信或触发车控。</p>
+<h2>来源与上游更新</h2><p>原面板与原有模型来自 <a href="https://github.com/lswlc33/zeeho-3d-models" target="_blank" rel="noopener">lswlc33/zeeho-3d-models</a>。本次锁定提交 2f22997，网页版本 6.93；新增的 <a href="api.html">接口调试台</a>与<a href="theme.LICENSE.txt">主题许可</a>随页面保留。安卓 App 的后台通知等能力不属于 Safari 功能。</p><p>3D 显示使用 Google <a href="https://modelviewer.dev/" target="_blank" rel="noopener">model-viewer</a>，其许可证在 vendor 目录。独立版本锁定上游产物，更新需重新验证；源码工作区的 tools/check-upstream.ps1 可以只读检查新提交，不会自动替换已发布版本。</p>
 </main></body></html>
