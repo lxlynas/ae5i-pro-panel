@@ -34,6 +34,13 @@
 .ae5i-caption { margin: 4px 0 10px; text-align: center; color: var(--md-sys-color-on-surface-variant);
   font-size: 11px; line-height: 17px; }
 .ae5i-caption a { color: inherit; text-underline-offset: 2px; }
+.ae5i-model-picker { display: flex; align-items: center; gap: 10px; margin: 6px 0;
+  color: var(--md-sys-color-on-surface-variant); font-size: 12px; }
+.ae5i-model-picker > span { flex: 0 0 auto; }
+.ae5i-model-select { flex: 1; min-width: 0; min-height: 44px; padding: 8px 10px;
+  border: 1px solid var(--md-sys-color-outline-variant); border-radius: 12px;
+  background: var(--bg-inset); color: var(--md-sys-color-on-surface); font: inherit; font-size: 16px; }
+.ae5i-model-select:focus-visible { outline: 2px solid var(--md-sys-color-primary); outline-offset: 2px; }
 .ae5i-hero .tirebub { bottom: 58px; }
 .ae5i-hero[data-ae5i-mode="2d"] .hero-stage { height: 208px; }
 .ae5i-hero[data-ae5i-mode="2d"] .hero-stage > img,

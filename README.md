@@ -9,12 +9,17 @@
 
 单指拖动旋转、双指缩放，支持复位视角、自动旋转、原车图切换及失败重试。添加桌面：Safari 分享 → 添加到主屏幕。
 
+在首页模型下方的「展示模型」中切换 AE4 MAX2+、咕咕嘎嘎企鹅装、DeepSeek 玩偶、巫女半身像。页面记住上次选择；角色只在选中时下载，巫女半身像首次约 37 MB。
+
 ## 模型与来源
 
 - 展示模型借用 AE4 MAX2+，与 AE5i Pro 的真实外形不同。
 - 面板公开产物与原始模型来自 https://github.com/lswlc33/zeeho-3d-models 。冻结来源见 source-info.json。
 - 本仓库仅包含网页展示副本；保留车辆几何与贴图，仅隐藏原 App 专用充电线和阴影平面。
 - 查看组件为 Google model-viewer，其许可证位于 vendor/model-viewer-license.txt。
+- 企鹅装原作 Gugugaga：planktonfun / planktonminions，https://sketchfab.com/3d-models/gugugaga-fa1d5c98a98f40f080796e54929b9889 ，CC BY 4.0。
+- DeepSeek 玩偶原作 Deepseek Fumo：xunbile，https://sketchfab.com/3d-models/deepseek-fumo-4da1c304ea11410b97f0f727dd51aca9 ，CC BY 4.0。
+- 巫女半身像来自上游公开模型库，上游未单独注明作者或许可。三个角色使用上游适配版原文件，保留内嵌署名，未再修改模型几何或贴图；固定来源与文件校验值见 models/model-sources.json，页面使用说明包含可点击署名和许可链接。
 - 本项目为独立适配版本，不是极核官方 App，也不会替换 iPhone 官方 App 的模型。
 
 ## 部署
